@@ -7,7 +7,9 @@ class Video extends Component {
         super();
         this.state = {
             video: {
-                id: "NuR76h7j6pQ",
+                // id: "NuR76h7j6pQ",
+                // id: "QWX-1b-pve8",
+                id: "WR1wbQM36lM",
                 playervars: {
                     height: 600,
                     width: 1000,
@@ -53,12 +55,13 @@ class Video extends Component {
 
                     <section className='video-right'>
                         <ol className='time-stamps'>
-                            <li className = 'time-stamp' onClick={() => this.jumpToTime(100.0)}>Prepare the Steam Wand & Choose the Right Pitcher</li>
-                            <li className = 'time-stamp' onClick={() => this.jumpToTime(100.0)}>Start Steaming & Texture the Milk</li>
-                            <li className = 'time-stamp' onClick={() => this.jumpToTime(100.0)}>Monitor Temperature</li>
-                            <li className = 'time-stamp' onClick={() => this.jumpToTime(100.0)}>Finish Steaming</li>
-                            <li className = 'time-stamp' onClick={() => this.jumpToTime(100.0)}>Tap and Swirl & Pour and Serve</li>
-
+                            <li className = 'time-stamp' onClick={() => this.jumpToTime(25.0)}>Placement and Depth</li>
+                            <li className = 'time-stamp' onClick={() => this.jumpToTime(42.0)}>Steam Pressure and Sound</li>
+                            <li className = 'time-stamp' onClick={() => this.jumpToTime(53.0)}>Whirlpool and Temperature</li>
+                            <li className = 'time-stamp' onClick={() => this.jumpToTime(72.0)}>Purge & Wipe</li>
+                            <li className = 'time-stamp' onClick={() => this.jumpToTime(85.0)}>Grooming & Maintenance</li>
+                            <li className = 'time-stamp' onClick={() => this.jumpToTime(105.0)}>Pour It</li>
+                            <li className = 'time-stamp' onClick={() => this.jumpToTime(124.0)}>Examining Milk Waste</li>
                         </ol>
                     </section>
 
