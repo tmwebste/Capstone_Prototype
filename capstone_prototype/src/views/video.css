@@ -1,0 +1,61 @@
+
+.video-grid{
+    display: inline-grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    
+    /* width: 1440px; */
+    /* height: 100%; */
+    margin: 10px 0px 10px 0px;
+    /* padding: 100px; */
+
+}
+
+.video-view {
+    background-color: white;
+    padding-bottom: 40px;
+}
+
+.nav-buttons{
+    display: flex;
+    box-sizing: border-box;
+    width: 1090px;
+    align-self: flex-start;
+    justify-content: right;
+    padding-right: 40px;
+
+}
+
+.video-left {
+    margin: 30px;
+    
+}
+
+.video-right {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.time-stamps {
+    margin: 0;
+    text-align: left;
+    overflow: auto;
+    height: 600px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.time-stamp {
+    padding: 40px;
+    height: 20px;
+    cursor: pointer;
+    list-style-position:inside;
+    border: 1px solid lightgrey;
+    background-color: rgb(247, 247, 247);
+    /* color: black */
+    
+}
+
+.time-stamp:hover {
+    cursor: pointer;
+}
