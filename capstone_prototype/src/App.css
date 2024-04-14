@@ -4,15 +4,17 @@
   /* padding: 2rem; */
   text-align: center;
   background-color: white;
+  /* overflow: auto; */
 }
 
 .title-bar{
-  background-color: purple;
+  background-color: #800080;
   color: aliceblue;
   /* height:80px; */
   padding: 2px;
   padding-left: 20px;
   text-align: left;
+  
 }
 
 .dark-button {
