@@ -11,8 +11,9 @@ class ServerInterface extends Component {
       
         //   SERVER_IP:'http://172.26.112.93:5000/' //Server URL for local dev server
 
-        // SERVER_IP:'http://172.26.70.227:80/'
-        SERVER_IP:'http://127.0.0.1:80/'
+        SERVER_IP:'http://172.26.70.227:80/'
+        // SERVER_IP:'http://127.0.0.1:80/'
+        
     }
   }
 

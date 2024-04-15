@@ -1,6 +1,6 @@
-*{
+/* *{
     box-sizing: border-box;
-}
+} */
 
 .response{
     display: inline;
@@ -8,6 +8,7 @@
     align-content: center;
     text-justify: center;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .response-section {
@@ -28,13 +29,13 @@
 
 .question-title{
     display: flex;
-    width: 100%;
-    text-align: center;
-    text-justify: center;
+    width: 90%;
+    text-align: left;
+    text-justify: left;
     justify-content: center;
     align-content: center;
     margin: 10px 0px 20px 0px;
-    padding: 0px 50px 0px 50px;
+    padding: 0px 20px 0px 20px;
 }
 
 .text-box {

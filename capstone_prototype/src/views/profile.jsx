@@ -10,21 +10,48 @@ class Profile extends Component {
         }
     }
 
+    getTopSkills = (attributeData) => {
+        // console.log(attributeData);
+        let combined = attributeData.labels.map((label, index) => ({
+            label,
+            value: attributeData.data[index]
+        }));
+
+        // Sort the combined array based on the value in descending order
+        combined.sort((a, b) => b.value - a.value);
+        combined = combined.slice(0, 3);
+        console.log(combined);
+
+        
+        return (
+            <div className='profile-attributes'>
+                {combined.map(item => (
+                    <div className='top-attribute'>
+                        <p key={item.label}>{`${item.label}: ${item.value}`}</p>
+                    </div>
+                ))}
+            </div>
+          );
+    }
+
     render() {
         return (
             <div>
                 <nav className='title-bar'><h3>How To Steam Milk For A Latte - Profile</h3></nav>
                 <section className='profile-grid'>
                     <section className='profile-left'>
-                        <img className='profile-photo' alt='profile photo' type="image/svg+xml" src='./profile-photo.svg'/>
+                        <img className='profile-photo' alt='profile photo' type="image/svg+xml" src='./profile-photo.svg' />
                         <h1>YOUR NAME</h1>
-                        <p>This is where information about your profile is shown</p>
+                        <h2>Top Skills</h2>
+                        <div className='top-skills'>
+                            {this.getTopSkills(this.props.chartData.final)}
+                        </div>
                     </section>
                     <section className='profile-right'>
-                        <Chart className='attribute-chart' dataset1 = {this.props.chartData.original} dataset2 = {this.props.chartData.final}></Chart>
+                        <Chart className='attribute-chart' dataset1={this.props.chartData.original} dataset2={this.props.chartData.final}></Chart>
                     </section>
                 </section>
-                <button onClick={()=>this.props.setStep(3)}>Results</button>
+                <button className='light-button' onClick={() => this.props.setStep(3)}>Results</button>
             </div>
         );
     }

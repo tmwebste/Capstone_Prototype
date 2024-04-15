@@ -14,9 +14,13 @@
 .profile-left{
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 80%;
     text-align: left;
     text-justify: left;
+    justify-content: flex-start;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
     margin-left: 40px;
 }
 
@@ -24,6 +28,14 @@
     width: 300px;
     background-color: lightgray;
     border-radius: 50%;
+}
+
+.top-attribute {
+    text-align: center;
+    padding: 10px 60px 10px 60px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: aliceblue;
 }
 
 h1{

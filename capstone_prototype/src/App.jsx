@@ -15,10 +15,11 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      devMode: false,
       quizGrade: 0,
       userResponse: '',
       responseGrade: 0,
-      step: 2,
+      step: 0,
       quizData: null,
       chartData: {
         original: {
@@ -106,11 +107,11 @@ class App extends Component {
   render() {
     return (
       <section className='main'>
-        {this.state.step === 0 && <Video setStep={this.setStep} />}
-        {this.state.step === 1 && <Quiz setStep={this.setStep} setQuizGrade={this.setQuizGrade} setQuizData={this.setQuizData}/>}
-        {this.state.step === 2 && <Response setStep={this.setStep} getAttributes={serverInterface.getAttributes} setResponseGrade={this.setResponseGrade} gptAttributes={this.gptAttributes}/>}
-        {this.state.step === 3 && <Results setStep={this.setStep} responseGrade={this.state.responseGrade} quizGrade={this.state.quizGrade} />}
-        {this.state.step === 4 && <Profile setStep={this.setStep} chartData={this.state.chartData} />}
+        {this.state.step === 0 && <Video setStep={this.setStep} devMode={this.state.devMode} />}
+        {this.state.step === 1 && <Quiz setStep={this.setStep} setQuizGrade={this.setQuizGrade} setQuizData={this.setQuizData} devMode={this.state.devMode}/>}
+        {this.state.step === 2 && <Response setStep={this.setStep} getAttributes={serverInterface.getAttributes} setResponseGrade={this.setResponseGrade} gptAttributes={this.gptAttributes} devMode={this.state.devMode}/>}
+        {this.state.step === 3 && <Results setStep={this.setStep} responseGrade={this.state.responseGrade} quizGrade={this.state.quizGrade} devMode={this.state.devMode}/>}
+        {this.state.step === 4 && <Profile setStep={this.setStep} chartData={this.state.chartData} devMode={this.state.devMode}/>}
       </section>
 
     )

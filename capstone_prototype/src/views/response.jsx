@@ -59,7 +59,7 @@ class Response extends Component {
                 </section>
 
                 <button className='light-button' onClick={() => this.props.setStep(1)}>Quiz</button>
-                {this.state.isSubmitted ? (
+                {this.state.isSubmitted || this.props.devMode? (
                     <button className='dark-button' onClick={() => this.submitEverything()}>Results</button>
                 ):(
                     <button className='dark-button' onClick={() => this.submitEverything()} disabled={true}>Results</button>

@@ -28,8 +28,8 @@ class Results extends Component {
                     {/* <h1>{this.props.quizGrade}</h1>
                     <h1>{this.props.responseGrade}</h1> */}
                 </section>
-                <button onClick={()=>this.props.setStep(2)}>Response</button>
-                <button onClick={()=>this.props.setStep(4)}>Profile</button>
+                <button className='light-button' onClick={()=>this.props.setStep(2)}>Response</button>
+                <button className='dark-button' onClick={()=>this.props.setStep(4)}>Profile</button>
             </section>
         );
     }

@@ -6,7 +6,7 @@ class Quiz extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            devMode: true,
+            
             answers: Array(5).fill(null),
             score: null,
             questions: [
@@ -138,7 +138,7 @@ class Quiz extends Component {
                 )}
 
                 <button className='light-button' onClick={() => this.props.setStep(0)}>Video</button>
-                {(this.state.allAnswered || this.state.devMode) ? (
+                {(this.state.allAnswered || this.props.devMode) ? (
                     <button className='dark-button' onClick={() => this.props.setStep(2)} >Response</button>
                 ) : (
                     // Comment and uncomment to 
