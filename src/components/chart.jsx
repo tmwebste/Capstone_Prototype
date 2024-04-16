@@ -7,7 +7,7 @@ import './chartStyles.css'
 
 const BASE_WIDTH = 800
 const BASE_HEIGHT = 800
-const NUM_BARS = 8 
+const NUM_BARS = 8
 const BAR_ANGLE = (2 * Math.PI) / NUM_BARS
 const INNER_RADIUS = 150
 const MAX_RADIUS = BASE_WIDTH / 2
@@ -15,7 +15,7 @@ const DOMAIN = [0.0, 1.0]
 
 export default class Chart extends React.Component {
   state = { flipped: false };
-  
+
   click = () => {
     this.setState(state => ({ flipped: !state.flipped }));
   }
@@ -26,8 +26,8 @@ export default class Chart extends React.Component {
     let angle = index / NUM_BARS * 2 * Math.PI - 45.15; // Distribute text evenly around the circle
     // console.log(angle);
     // let angle = ((360 / NUM_BARS) * (index - 1));
-    const x = Math.cos(angle) * BASE_WIDTH/2.5;
-    const y = Math.sin(angle) * BASE_WIDTH/2.5;
+    const x = Math.cos(angle) * BASE_WIDTH / 2.5;
+    const y = Math.sin(angle) * BASE_WIDTH / 2.5;
     return { x, y };
   }
 
@@ -65,13 +65,33 @@ export default class Chart extends React.Component {
     }, DELAY);
   }
 
-  biggerOrSmaller(originalVal, newVal){
-    if (newVal > originalVal && this.state.flipped){
-        return ' ↑';
-    } else if (newVal < originalVal && this.state.flipped){
-        return ' ↓';
+  biggerOrSmaller(originalVal, newVal) {
+    if (newVal > originalVal && this.state.flipped) {
+      return ' ↑';
+    } else if (newVal < originalVal && this.state.flipped) {
+      return ' ↓';
     }
     return '';
+  }
+
+  wrapText(text, maxCharsPerLine) {
+    const words = text.split(/\s+/);  // Split by any whitespace
+    const lines = [];
+    let currentLine = words[0] || '';
+
+    words.slice(1).forEach(word => {
+      if ((currentLine + ' ' + word).length > maxCharsPerLine) {
+        lines.push(currentLine);
+        currentLine = word;
+      } else {
+        currentLine += ' ' + word;
+      }
+    });
+
+    if (currentLine) {
+      lines.push(currentLine);
+    }
+    return lines;
   }
 
   render() {
@@ -112,24 +132,22 @@ export default class Chart extends React.Component {
                 // frame of the animation - frameStyle is the resulting "temporary" object,
                 // mimicking the properties present in targetStyle.
                 // Note the delay argument which we use to stagger the animation of the bars.
-                <Spring key={i}
-                        native
-                        delay={i * 200}
-                        to={targetStyle}
-                        config={config.slow}>
+                <Spring key={i} native delay={i * 200} to={targetStyle} config={config.slow}>
                   {frameStyle => (
                     <g>
                       <animated.path d={frameStyle.path} fill={frameStyle.color} />
                       <animated.text
-                        
                         x={this.calculateTextPosition(i, outerRadius).x}
                         y={this.calculateTextPosition(i, outerRadius).y}
-                        // fill="red"  
                         textAnchor="middle"
                         alignmentBaseline="middle"
-                        style={{ fontSize: `16px`}}
+                        style={{ fontSize: `14px` }}
                       >
-                        {labels[i] + this.biggerOrSmaller(this.props.dataset1.data[i], this.props.dataset2.data[i])}{/*   Assuming each data point has a 'label' field */}
+                        {this.wrapText(labels[i] + this.biggerOrSmaller(this.props.dataset1.data[i], this.props.dataset2.data[i]), 35).map((line, index) => (
+                          <tspan x={this.calculateTextPosition(i, outerRadius).x } dy={index * 16 + (index === 0 ? 0 : 16)} key={index}>
+                            {line}
+                          </tspan>
+                        ))}
                       </animated.text>
                     </g>
                   )}
@@ -144,10 +162,10 @@ export default class Chart extends React.Component {
               <Spring key="text" to={{ overallScore }}>
                 {frameStyle =>
                   // Did I mention Spring can also interpolate text nodes?
-                    // overallScore
-                    (Math.round(dataset.reduce((partialSum, a) => partialSum + a / (NUM_BARS * DOMAIN[1]), 0) * 100) ) + ' / 100'
-                    
-                }   
+                  // overallScore
+                  (Math.round(dataset.reduce((partialSum, a) => partialSum + a / (NUM_BARS * DOMAIN[1]), 0) * 100)) + ' / 100'
+
+                }
               </Spring>
             </text>
           </g>
