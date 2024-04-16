@@ -37,11 +37,11 @@ class Profile extends Component {
     render() {
         return (
             <div>
-                <nav className='title-bar'><h3>How To Steam Milk For A Latte - Profile</h3></nav>
+                <nav className='title-bar'><h3>Your Profile</h3></nav>
                 <section className='profile-grid'>
                     <section className='profile-left'>
-                        <img className='profile-photo' alt='profile photo' type="image/svg+xml" src='./profile-photo.svg' />
-                        <h1>YOUR NAME</h1>
+                        <img className='profile-photo' alt='profile photo'  src='./profile-pic.png' />
+                        <h1>Olivia Williams</h1>
                         <h2>Top Skills</h2>
                         <div className='top-skills'>
                             {this.getTopSkills(this.props.chartData.final)}

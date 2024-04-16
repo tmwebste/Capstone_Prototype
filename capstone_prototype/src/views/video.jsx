@@ -35,12 +35,12 @@ class Video extends Component {
         }
     }
 
-
-
     render() {
         return (
             <div className='video-view'>
-                <nav className='title-bar'><h3>How To Steam Milk For A Latte - Video</h3></nav>
+                <nav className='title-bar'>
+                    <h3>How To Steam Milk For A Latte - Video</h3>
+                </nav>
                 <section className='video-grid'>
 
                     <section className='video-left'>

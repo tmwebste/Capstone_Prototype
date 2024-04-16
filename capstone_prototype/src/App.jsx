@@ -8,6 +8,13 @@ import Response from './views/response';
 import Results from './views/results';
 import Profile from './views/profile';
 
+/*TODO: 
+Progress bar for whole process
+Better method of going back to previous steps
+A B Testing for visualizations 
+*/
+
+
 //Import components
 import serverInterface from './components/serverInterface';
 

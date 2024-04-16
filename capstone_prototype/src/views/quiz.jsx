@@ -113,7 +113,7 @@ class Quiz extends Component {
                                 className='quiz-radio'
                                 name={`question-${index}`} 
                                 onChange={() => this.handleAnswerSelect(index, option.isCorrect)}
-                                disabled={this.state.answers[index] !== null}
+                                // disabled={this.state.answers[index] !== null}
                             />
                             {option.answerText}
                         </label>
